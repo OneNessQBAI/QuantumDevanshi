@@ -2,20 +2,23 @@ services:
   - type: web
     name: quantum-devanshi
     env: python
+    region: ohio
     buildCommand: pip install -r requirements.txt
-    startCommand: python main.py
+    startCommand: gunicorn main:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9
-    healthCheckPath: /
+        value: 3.9.0
+      - key: PIP_VERSION
+        value: 24.3.1
     autoDeploy: true
     plan: free
 
-staticSites:
-  - name: quantum-devanshi-static
-    buildCommand: echo "Static assets ready"
+  - type: web
+    name: quantum-devanshi-static
+    env: static
+    buildCommand: echo "Static files ready"
     staticPublishPath: ./
-    headers:
-      - path: /*
-        name: Cache-Control
-        value: no-cache
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
