@@ -9,7 +9,7 @@ services:
       pip install wheel setuptools
       pip install -r requirements.txt
       pip install gunicorn eventlet
-    startCommand: gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:$PORT 'main:app'
+    startCommand: python main.py
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.0
@@ -17,6 +17,8 @@ services:
         value: "true"
       - key: RENDER
         value: "true"
+      - key: PORT
+        value: "10000"
     healthCheckPath: /
     autoDeploy: true
     plan: free
