@@ -175,7 +175,7 @@ def generate_speech(text: str) -> str:
 
 # Initialize Flask app
 app = Flask(__name__, static_url_path='', static_folder=current_dir)
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 
 # Initialize pipeline
 pipeline = QuantumMagneticFieldPipeline()
@@ -215,5 +215,10 @@ def handle_text_to_speech(data):
     })
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
     logger.info(f"Serving files from: {current_dir}")
-    socketio.run(app, host='0.0.0.0', port=5000, debug=False, use_reloader=False)
+    # In production, we let gunicorn handle the serving
+    if os.environ.get("RENDER"):
+        app.logger.info("Running in production mode")
+    else:
+        socketio.run(app, host='0.0.0.0', port=port, debug=False, use_reloader=False, allow_unsafe_werkzeug=True)
