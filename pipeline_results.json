@@ -1,0 +1,80 @@
+{
+  "timestamp": "2024-11-06T16:20:18.308209+00:00",
+  "input_parameters": {
+    "location": {
+      "latitude": 0.0,
+      "longitude": 0.0,
+      "altitude": 400.0
+    },
+    "target_params": {
+      "target_strength": 0.5,
+      "target_direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "precision_threshold": 0.01
+    },
+    "particle_properties": {
+      "mass": 1.67262192e-27,
+      "charge": 1.60217663e-19,
+      "g_factor": 5.585694713,
+      "velocity": [
+        100000.0,
+        0,
+        0
+      ]
+    }
+  },
+  "field_data": {
+    "timestamp": "2024-11-06T16:20:18.308209+00:00",
+    "field_strength": 45.7,
+    "field_direction": [
+      0.707,
+      0.0,
+      0.707
+    ],
+    "location": {
+      "latitude": 0.0,
+      "longitude": 0.0,
+      "altitude": 400.0
+    }
+  },
+  "optimized_configuration": {
+    "optimal_state": "1111",
+    "probability": 0.077,
+    "field_parameters": {
+      "field_strength": 100.0,
+      "normalized_parameters": 1.0
+    }
+  },
+  "measurement_results": {
+    "position_mean": [
+      1.024589366292461e-06,
+      -2.5485835821628686e-09,
+      1.73545283721475e-08
+    ],
+    "position_std": [
+      1.3569090069735487e-07,
+      1.241082505602113e-07,
+      1.2400040073183654e-07
+    ],
+    "momentum_mean": [
+      1.6649045535625648e-22,
+      -4.511456563403608e-25,
+      1.2162191715442631e-24
+    ],
+    "momentum_std": [
+      1.814602673245184e-23,
+      1.6759503503874928e-23,
+      1.6903313819161114e-23
+    ],
+    "spin_mean": [
+      0.0,
+      0.0,
+      2.590089429589746e-21
+    ],
+    "interaction_strength_mean": 1.0,
+    "interaction_strength_std": 0.0
+  }
+}

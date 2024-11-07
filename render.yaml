@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: quantum-devanshi
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9
+    healthCheckPath: /
+    autoDeploy: true
+    plan: free
+
+staticSites:
+  - name: quantum-devanshi-static
+    buildCommand: echo "Static assets ready"
+    staticPublishPath: ./
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache

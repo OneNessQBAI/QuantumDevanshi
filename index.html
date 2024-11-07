@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Magnetic Field Optimizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 3D Shapes -->
+    <div class="shape cube"></div>
+    <div class="shape sphere"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1>Quantum Magnetic Field Optimizer</h1>
+        </header>
+
+        <!-- Configuration Panel -->
+        <div class="panel">
+            <h2>Configuration</h2>
+            <div class="input-group">
+                <label for="openai-key">OpenAI API Key</label>
+                <input type="password" id="openai-key" class="input-field" placeholder="Enter your OpenAI API key">
+            </div>
+            
+            <div class="input-group">
+                <label for="custom-endpoint">Custom Database Endpoint</label>
+                <input type="text" id="custom-endpoint" class="input-field" placeholder="Enter custom database endpoint">
+            </div>
+            
+            <div class="input-group">
+                <label for="custom-api-key">Custom Database API Key</label>
+                <input type="password" id="custom-api-key" class="input-field" placeholder="Enter custom database API key">
+            </div>
+            
+            <div class="input-group">
+                <label for="particle-config">Particle Configuration</label>
+                <textarea id="particle-config" class="input-field" rows="4" placeholder="Enter particle configuration in JSON format"></textarea>
+            </div>
+            
+            <div class="input-group">
+                <label for="database-file">Upload Database File</label>
+                <input type="file" id="database-file" class="input-field" accept=".json,.csv">
+            </div>
+            
+            <button id="execute-btn" class="btn">Execute Optimization</button>
+        </div>
+
+        <!-- Chat and Results Panel -->
+        <div class="panel">
+            <h2>Analysis Chat</h2>
+            
+            <!-- Audio Controls -->
+            <div class="audio-controls">
+                <button id="record-btn" class="btn">🎤 Start Recording</button>
+                <button id="play-btn" class="btn">🔊 Play Response</button>
+            </div>
+            
+            <div class="chat-container" id="chat-container">
+                <!-- Messages will be added here dynamically -->
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="chat-input" class="input-field" placeholder="Ask about the results or speak using the microphone...">
+                <button id="send-btn" class="btn">Send</button>
+            </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="panel">
+            <h2>Results</h2>
+            <div class="results" id="results-container">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
