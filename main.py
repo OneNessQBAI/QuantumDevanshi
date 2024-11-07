@@ -215,10 +215,11 @@ def handle_text_to_speech(data):
     })
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
+    port = int(os.environ.get("PORT", 10000))
     logger.info(f"Serving files from: {current_dir}")
-    # In production, we let gunicorn handle the serving
+    
     if os.environ.get("RENDER"):
         app.logger.info("Running in production mode")
+        socketio.run(app, host='0.0.0.0', port=port)
     else:
         socketio.run(app, host='0.0.0.0', port=port, debug=False, use_reloader=False, allow_unsafe_werkzeug=True)
